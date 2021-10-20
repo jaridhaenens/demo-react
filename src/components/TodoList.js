@@ -9,15 +9,18 @@ const TodoList = () => {
   return useObserver(() => (
     <>
       <h1>Todo List</h1>
-      <input onKeyPress={store.addTodo} value={store.value} onChange={store.handleChange}/>
+      <input
+        onKeyPress={store.addTodo}
+        value={store.value}
+        onChange={store.handleChange}
+      />
       <ul>
-        {store.todos.map(todo => (
-          <ListItem todo={todo} key={todo.id} />
+        {store.todos.map((todo) => (
+          <ListItem todo={todo} store={store} key={todo.id} />
         ))}
       </ul>
     </>
   ));
-}
-
+};
 
 export default TodoList;

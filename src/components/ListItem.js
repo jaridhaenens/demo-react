@@ -1,14 +1,10 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
 
-import Store from "../Stores";
-const store = new Store();
-
-const ListItem = ({ todo }) => {
-  
+const ListItem = ({ store, todo }) => {
   const handleRemove = () => {
-    store.removeTodo(todo.id)
-  }
+    store.removeTodo(todo.id);
+  };
 
   return useObserver(() => (
     <>
@@ -18,6 +14,6 @@ const ListItem = ({ todo }) => {
       </li>
     </>
   ));
-}
+};
 
 export default ListItem;
